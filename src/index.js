@@ -1,5 +1,20 @@
 const choreCollection = document.querySelector('div#chore-list')
 
+choreCollection.addEventListener('click', event => {
+    // console.log(event.target)
+    if (event.target.matches('button')){
+
+        event.target.parentElement.remove()
+
+        const buttonId = event.target.dataset.id 
+
+       fetch(`http://localhost:3000/chores/${buttonId}`, {
+           method: 'DELETE'
+           
+       })
+
+    }
+})
 
 function renderAllChores () {
 fetch ('http://localhost:3000/chores')
@@ -9,7 +24,9 @@ fetch ('http://localhost:3000/chores')
         choresArr.forEach(choresObj => {
             renderOneChore(choresObj)
         })
+        
     })
+    
 }
 function renderOneChore(choresObj) {
     const outerDiv = document.createElement('div')
@@ -19,12 +36,14 @@ function renderOneChore(choresObj) {
     <button class="delete-button" data-id="${choresObj.id}">x</button>
     <h3> ${choresObj.title} </h3>
     <p> Duration: ${choresObj.duration} </p>
-    <input></input>
+    <input type="text" value=${choresObj.priority}>
     <!-- value should have the importance  -->
     
     `
     // console.log(outerDiv)
     choreCollection.append(outerDiv)
+
+    
 
 
 }
@@ -37,7 +56,7 @@ choreForm.addEventListener('submit', event => {
     const newChoreObj = {
         title: event.target.title.value,
         priority: event.target.priority.value,
-        duration: event.target.priority.value
+        duration: event.target.duration.value
     }
 
     fetch ('http://localhost:3000/chores', {
@@ -50,5 +69,9 @@ choreForm.addEventListener('submit', event => {
     })
     // choreform.reset()
 })
-    
+
+
+
+
+
 renderAllChores()

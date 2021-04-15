@@ -1,22 +1,10 @@
 {
   "chores": [
     {
-      "id": 1,
-      "title": "Wash the dishes",
-      "priority": "piling up",
-      "duration": "30 min"
-    },
-    {
       "id": 2,
       "title": "Fix Bed",
       "priority": "Can Wait",
       "duration": "3 min"
-    },
-    {
-      "id": 3,
-      "title": "Catch Matt doing weird things",
-      "priority": "MOI IMPORTANTE",
-      "duration": "ongoing, forever"
     },
     {
       "title": "new chore",
@@ -29,6 +17,12 @@
       "priority": "real important",
       "duration": "real important",
       "id": 5
+    },
+    {
+      "title": "DO ALL THE LAUNDRY",
+      "priority": "pronto",
+      "duration": "pronto",
+      "id": 6
     }
   ]
 }
